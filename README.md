@@ -4,6 +4,10 @@ A clean and modern To-Do application built with React Native and Expo. This app 
 
 ## Getting Started
 
+### Prerequisites
+
+-   Node.js installed(18+version recommended)
+
 ### Installation
 
 1.  Clone the repository (or navigate to the project directory):
