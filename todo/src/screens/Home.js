@@ -63,18 +63,20 @@ const Home = () => {
     };
 
     const toggleTask = (id) => {
-        setTasks(tasks.map(task => {
-            if (task.id === id) {
-                const newCompleted = !task.completed;
-                if (newCompleted) {
-                    Alert.alert('Success', 'Task marked as completed!', [{ text: 'OK' }]);
-                } else {
-                    Alert.alert('Pending', 'Task marked as pending!', [{ text: 'OK' }]);
-                }
-                return { ...task, completed: newCompleted };
-            }
-            return task;
-        }));
+        const taskToToggle = tasks.find(t => t.id === id);
+        if (!taskToToggle) return;
+
+        const newCompleted = !taskToToggle.completed;
+
+        if (newCompleted) {
+            Alert.alert('Success', 'Task marked as completed!', [{ text: 'OK' }]);
+        } else {
+            Alert.alert('Pending', 'Task marked as pending!', [{ text: 'OK' }]);
+        }
+
+        setTasks(tasks.map(task =>
+            task.id === id ? { ...task, completed: newCompleted } : task
+        ));
     };
 
     const deleteTask = (id) => {
