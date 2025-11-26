@@ -68,6 +68,8 @@ const Home = () => {
                 const newCompleted = !task.completed;
                 if (newCompleted) {
                     Alert.alert('Success', 'Task marked as completed!', [{ text: 'OK' }]);
+                } else {
+                    Alert.alert('Pending', 'Task marked as pending!', [{ text: 'OK' }]);
                 }
                 return { ...task, completed: newCompleted };
             }
